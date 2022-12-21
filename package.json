@@ -1,0 +1,24 @@
+{
+  "name": "newapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {"node":"14.x"},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/black-devil963/newapi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/black-devil963/newapi/issues"
+  },
+  "homepage": "https://github.com/black-devil963/newapi#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
