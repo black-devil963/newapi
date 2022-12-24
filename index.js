@@ -13,14 +13,17 @@ const PORT =process.env.PORT||5050;
     res.json({hello:"world"})
  });
  app.post("/compilecode",function (req,res){
- 
+  const code=req.body.code;
+  const langss=req.body.lang;
+  const input=req.body.input;
+        console.log();
         const runRequestBody = {
-          script :"a=input();b=input();c=input();print('HelloWorld'+a+b+c)",
-          language: "python3",
+          script :code,
+          language: langss,
           versionIndex: "0",
           clientId: "d4c79a8e2dfc773fc4a40113d7f97b6e",
           clientSecret: "bea26f202841d16fb6e5f6682344dcda62d14a76f6eaeacd53467964a1ef92e5",
-          stdin: "5\n4r\nh",
+          stdin: input,
         };
         request
           .post({
