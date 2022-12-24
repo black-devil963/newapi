@@ -34,14 +34,11 @@ const PORT =process.env.PORT||5050;
           })
           .on("data", (data) => {
             const parsedData = JSON.parse(data.toString());
-            if (parsedData.error) {
-              res.send({"error":parsedData.error,status:500});
-            } else {
-              var output = "";
+            var output = "";
               for (var i = 0; i < parsedData.output.length; i++) {
                 if (parsedData.output[i] == "\n") output += "\n";
                 else output += parsedData.output[i];
-              }
+              
               console.log(output);
               res.send({output});
             }
