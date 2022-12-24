@@ -8,9 +8,9 @@ app.use(express.json());
 app.use(cors());
 const PORT =process.env.PORT||5050;
 
- app.get("/getData",function (req,res){
+ app.get("/",function (req,res){
     //res.sendfile(__dirname+"/index.html");
-    res.json({hello:"world"})
+    res.json({Content:"Welcome to NewApi"});
  });
  app.post("/compilecode",function (req,res){
   const code=req.body.code;
