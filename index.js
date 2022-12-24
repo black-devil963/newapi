@@ -16,7 +16,7 @@ const PORT =process.env.PORT||5050;
     var code=req.body.code;
   
         const runRequestBody = {
-          script :code,
+          script :"a=input();b=input();c=input();print('HelloWorld'+a+b+c)",
           language: "python3",
           versionIndex: "0",
           clientId: "d4c79a8e2dfc773fc4a40113d7f97b6e",
@@ -35,7 +35,7 @@ const PORT =process.env.PORT||5050;
           .on("data", (data) => {
             const parsedData = JSON.parse(data.toString());
             if (parsedData.error) {
-              res.send({"error":parsedData.error,status:400});
+              res.send({"error":parsedData.error,status:500});
             } else {
               var output = "";
               for (var i = 0; i < parsedData.output.length; i++) {
