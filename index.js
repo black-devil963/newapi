@@ -13,8 +13,7 @@ const PORT =process.env.PORT||5050;
     res.json({hello:"world"})
  });
  app.post("/compilecode",function (req,res){
-    var code=req.body.code;
-  
+ 
         const runRequestBody = {
           script :"a=input();b=input();c=input();print('HelloWorld'+a+b+c)",
           language: "python3",
@@ -34,11 +33,14 @@ const PORT =process.env.PORT||5050;
           })
           .on("data", (data) => {
             const parsedData = JSON.parse(data.toString());
-            var output = "";
+            if (parsedData.error) {
+              res.send({"error":parsedData.error,status:400});
+            } else {
+              var output = "";
               for (var i = 0; i < parsedData.output.length; i++) {
                 if (parsedData.output[i] == "\n") output += "\n";
                 else output += parsedData.output[i];
-              
+              }
               console.log(output);
               res.send({output});
             }
