@@ -19,11 +19,11 @@ const PORT =process.env.PORT||5050;
         console.log();
         const runRequestBody = {
           script :code,
-          language: langss||"python3",
+          language: langss,
           versionIndex: "0",
           clientId: "d4c79a8e2dfc773fc4a40113d7f97b6e",
           clientSecret: "bea26f202841d16fb6e5f6682344dcda62d14a76f6eaeacd53467964a1ef92e5",
-          stdin: input||"1\n5",
+          stdin: input,
         };
         request
           .post({
